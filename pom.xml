@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ← 你的公開 groupId, 已通過 Namespace 驗證 -->
+    <groupId>io.github.y2k6302</groupId>
+    <artifactId>maven-tiles</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>Spotless Tile</name>
+    <description>Maven Tiles for Spotless formatting</description>
+    <url>https://github.com/y2k6302/maven-tiles</url>
+
+    <!-- 必填：License/Developer/SCM -->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>y2k6302</id>
+            <name>Ian Chen</name>
+            <email>y2k6302@gmail.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <url>https://github.com/y2k6302/maven-tiles</url>
+        <connection>scm:git:git://github.com/y2k6302/maven-tiles.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/y2k6302/maven-tiles.git</developerConnection>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.8.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

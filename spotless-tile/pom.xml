@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+           http://maven.apache.org/POM/4.0.0
+           http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 繼承 parent POM -->
+    <parent>
+        <groupId>io.github.y2k6302</groupId>
+        <artifactId>maven-tiles</artifactId>
+        <version>1.0.0</version>
+        <!-- relativePath 如果不在 ../pom.xml，就調整路徑 -->
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <!-- 只定義自身 artifactId、packaging 就好 -->
+    <artifactId>spotless-tile</artifactId>
+    <packaging>pom</packaging>
+    <name>Spotless Tile</name>
+    <description>Reusable Spotless configuration via Maven Tile</description>
+
+    <!-- 只放 Tile 內容 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>2.37.0</version>
+                <configuration>
+                    <java><googleJavaFormat/></java>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>apply</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 不用再重複 SCM、DistributionManagement…都繼承自 parent -->
+</project>
