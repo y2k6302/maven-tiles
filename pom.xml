@@ -7,7 +7,7 @@
     <!-- ← 你的公開 groupId, 已通過 Namespace 驗證 -->
     <groupId>io.github.y2k6302</groupId>
     <artifactId>maven-tiles</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <name>Spotless Tile</name>
