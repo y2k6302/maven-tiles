@@ -7,7 +7,7 @@
     <!-- ← 你的公開 groupId, 已通過 Namespace 驗證 -->
     <groupId>io.github.y2k6302</groupId>
     <artifactId>maven-tiles</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
 
     <name>Spotless Tile</name>
@@ -35,24 +35,36 @@
     </scm>
 
     <build>
-        <plugins>
+        <pluginManagement>
+            <plugins>
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
                 <artifactId>spotless-maven-plugin</artifactId>
                 <version>2.37.0</version>
                 <configuration>
-                    <java><googleJavaFormat/></java>
+                    <java>
+                        <googleJavaFormat/>
+                    </java>
                 </configuration>
                 <executions>
                     <execution>
+                        <id>spotless-check</id>
                         <goals>
-                            <goal>apply</goal>
                             <goal>check</goal>
                         </goals>
+                        <phase>validate</phase>
+                    </execution>
+                    <execution>
+                        <id>spotless-apply</id>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                        <phase>process-sources</phase>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
+        </pluginManagement>
     </build>
 
     <profiles>
@@ -60,7 +72,6 @@
             <id>release</id>
             <build>
                 <plugins>
-                    <!-- GPG -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
@@ -84,6 +95,32 @@
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
                         </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.3.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.6.3</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
