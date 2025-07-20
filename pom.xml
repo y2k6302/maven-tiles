@@ -34,6 +34,27 @@
         <developerConnection>scm:git:ssh://git@github.com/y2k6302/maven-tiles.git</developerConnection>
     </scm>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>2.37.0</version>
+                <configuration>
+                    <java><googleJavaFormat/></java>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>apply</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <profiles>
         <profile>
             <id>release</id>
@@ -61,23 +82,8 @@
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
                         </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.diffplug.spotless</groupId>
-                        <artifactId>spotless-maven-plugin</artifactId>
-                        <version>2.37.0</version>
-                        <configuration>
-                            <java><googleJavaFormat/></java>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>apply</goal>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
                     </plugin>
                 </plugins>
             </build>
