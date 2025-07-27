@@ -7,8 +7,8 @@
     <!-- ← 你的公開 groupId, 已通過 Namespace 驗證 -->
     <groupId>io.github.y2k6302</groupId>
     <artifactId>maven-tiles</artifactId>
-    <version>1.0.2</version>
-    <packaging>pom</packaging>
+    <version>1.0.4</version>
+    <packaging>tile</packaging>
 
     <name>Spotless Tile</name>
     <description>Maven Tiles for Spotless formatting</description>
@@ -35,36 +35,20 @@
     </scm>
 
     <build>
-        <pluginManagement>
-            <plugins>
+        <plugins>
             <plugin>
-                <groupId>com.diffplug.spotless</groupId>
-                <artifactId>spotless-maven-plugin</artifactId>
-                <version>2.37.0</version>
+                <groupId>io.repaint.maven</groupId>
+                <artifactId>tiles-maven-plugin</artifactId>
+                <version>2.41</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <java>
-                        <googleJavaFormat/>
-                    </java>
+                    <filtering>false</filtering>
+                    <tiles>
+                        <tile>io.github.y2k6302:maven-tiles:[1.0, 2)</tile>
+                    </tiles>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>spotless-check</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <phase>validate</phase>
-                    </execution>
-                    <execution>
-                        <id>spotless-apply</id>
-                        <goals>
-                            <goal>apply</goal>
-                        </goals>
-                        <phase>process-sources</phase>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
-        </pluginManagement>
     </build>
 
     <profiles>
