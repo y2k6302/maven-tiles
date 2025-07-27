@@ -7,11 +7,15 @@
     <!-- ← 你的公開 groupId, 已通過 Namespace 驗證 -->
     <groupId>io.github.y2k6302</groupId>
     <artifactId>maven-tiles</artifactId>
-    <version>1.0.6</version>
-    <packaging>tile</packaging>
+    <version>1.0.7</version>
+    <packaging>pom</packaging>
 
-    <name>Spotless Tile</name>
-    <description>Maven Tiles for Spotless formatting</description>
+    <modules>
+        <module>spotless</module>
+    </modules>
+
+    <name>Maven Tiles Collection</name>
+    <description>Collection of reusable Maven Tiles</description>
     <url>https://github.com/y2k6302/maven-tiles</url>
 
     <!-- 必填：License/Developer/SCM -->
@@ -33,22 +37,6 @@
         <connection>scm:git:git://github.com/y2k6302/maven-tiles.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/y2k6302/maven-tiles.git</developerConnection>
     </scm>
-
-    <!-- tiles-maven-plugin to attach tile.xml -->
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.repaint.maven</groupId>
-                <artifactId>tiles-maven-plugin</artifactId>
-                <version>2.37</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <filtering>false</filtering>
-                </configuration>
-            </plugin>
-            <!-- GPG, source, javadoc plugins omitted for brevity -->
-        </plugins>
-    </build>
 
     <profiles>
         <profile>
