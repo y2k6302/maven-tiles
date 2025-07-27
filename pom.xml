@@ -7,7 +7,7 @@
     <!-- ← 你的公開 groupId, 已通過 Namespace 驗證 -->
     <groupId>io.github.y2k6302</groupId>
     <artifactId>maven-tiles</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.6</version>
     <packaging>tile</packaging>
 
     <name>Spotless Tile</name>
@@ -34,20 +34,19 @@
         <developerConnection>scm:git:ssh://git@github.com/y2k6302/maven-tiles.git</developerConnection>
     </scm>
 
+    <!-- tiles-maven-plugin to attach tile.xml -->
     <build>
         <plugins>
             <plugin>
                 <groupId>io.repaint.maven</groupId>
                 <artifactId>tiles-maven-plugin</artifactId>
-                <version>2.41</version>
+                <version>2.37</version>
                 <extensions>true</extensions>
                 <configuration>
                     <filtering>false</filtering>
-                    <tiles>
-                        <tile>io.github.y2k6302:maven-tiles:[1.0, 2)</tile>
-                    </tiles>
                 </configuration>
             </plugin>
+            <!-- GPG, source, javadoc plugins omitted for brevity -->
         </plugins>
     </build>
 
